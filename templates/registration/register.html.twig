@@ -7,13 +7,35 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <div class="container-fluid connectClass">
+		<div class="row">
+			<div class="col-lg-7 col-md-12 col-12 formulaire">
 
-    {{ form_errors(registrationForm) }}
+				<img src="{{asset('./images/login.png')}}" width="230" style="margin:0 auto;" alt="">
 
-    {{ form_start(registrationForm) }}
-        {{form_widget(registrationForm)}}
+				<div class="ConnectForm">
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+					<h2>Inscrivez-vous</h2>
+					
+					
+						{{ form_errors(registrationForm) }}
+
+                        {{ form_start(registrationForm) }}
+                            {{form_widget(registrationForm)}}
+
+                            <button type="submit" class="btn">S'inscrire</button>
+						<a href="{{ path('app_login') }}">Vous êtes déjà membre?
+							<span style="color:#ffc800">
+								Connectez-vous.</span>
+						</a>
+                        {{ form_end(registrationForm) }}
+
+
+					
+
+				</div>
+			</div>
+			<div class=" col-lg-5  bejaia_image"></div>
+		</div>
+	</div>
 {% endblock %}

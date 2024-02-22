@@ -1,122 +1,94 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Log in!
+{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-
-    <div class="container-fluid connectClass">
-        <div class="row">
-            <div class="col-lg-7 col-md-12 col-12 formulaire">
-    
-                <img src="../../static/assets/kah/login.png" width="230" style="margin:0 auto;" alt="">
-    
-                <div class="ConnectForm">
-    
-                    <h2>Connectez-vous</h2>
-                    <form method="post" class="form">
-                        {% csrf_token %}
-                        
-                        {% for message in messages %}
-                        <div class="alert alert-success" role="alert">
-                            {{ message }}
-                          </div>
-                          {% endfor %}
-                        <div class="user">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="email" placeholder="Email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                        </div>
-                        
-                    
-                        <div class="pass">
-                            <i class="fa-solid fa-lock lock"></i>
-                            <input type="password" placeholder="Password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-                            
-                            <i class="fa-regular fa-eye aff"></i>
-                            <i class="fa-regular fa-eye-slash aff2"></i>
-                        </div>
-                        
-    
-                        <!-- <div class="checkbox mb-3">
-                            <label>
-                                <input type="checkbox" name="_remember_me"> Se souvenir de moi
-                            </label>
-
-                            <a href="#">Mot de passe oublié?</a>
-                        </div> -->
-    
-                        <button formnovalidate class="btn" type="submit">
-                            Se connecter
-                        </button>
-                        <a class="msg_error">{{ message }}</a>
-                        <a href="/register">Vous n'êtes pas encore membre? <span style="color:#ffc800"> Inscrivez-vous.</span></a>
-                    </form>
-    
-                </div>
-            </div>
-            <div class=" col-lg-5  bejaia_image">
-    
-            </div>
-    
-    
-        </div>
-    </div>
-    
-    
-    
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 
 
+	<div class="container-fluid connectClass">
+		<div class="row">
+			<div class="col-lg-7 col-md-12 col-12 formulaire">
 
-    <script>
-                let pass = document.getElementById('inputPassword');
-                let eye = document.getElementsByClassName('aff');
-                let eye2 = document.getElementsByClassName('aff2');
-                pass.addEventListener('input', function () {
-                if (pass.value != "" && eye2[0].style.display == 'none') {
-                    eye[0].style.display = 'block';
-                } else if (pass.value != "" && eye2[0].style.display == 'block') {
-                    eye[0].style.display = 'none';
-                } else {
-                    eye[0].style.display = 'none';
-                    eye2[0].style.display = 'none';
-                }
-    
-                });
-    
-    
-                eye[0].addEventListener('click', function () {
-                    eye[0].style.display = 'none';
-                    eye2[0].style.display = 'block';
-                    pass.setAttribute("type", "text");
-                });
-                eye2[0].addEventListener('click', function () {
-                    eye[0].style.display = 'block';
-                    eye2[0].style.display = 'none';
-                    pass.setAttribute("type", "password");
-                });
-    </script>
+				<img src="{{asset('./images/login.png')}}" width="230" style="margin:0 auto;" alt="">
+
+				<div class="ConnectForm">
+
+					<h2>Connectez-vous</h2>
+					<form method="post">
+						{% if error %}
+							<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+						{% endif %}
+
+						{% if app.user %}
+							<div class="mb-3">
+								You are logged in as
+								{{ app.user.userIdentifier }},
+								<a href="{{ path('app_logout') }}">Logout</a>
+							</div>
+						{% endif %}
+
+						<div class="user">
+							<i class="fa-solid fa-user"></i>
+							<input type="email" placeholder="Email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+						</div>
+
+
+						<div class="pass">
+							<i class="fa-solid fa-lock lock"></i>
+							<input type="password" placeholder="Mot de passe" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+
+							<i class="fa-regular fa-eye aff"></i>
+							<i class="fa-regular fa-eye-slash aff2"></i>
+						</div>
+
+						<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+						<button formnovalidate class="btn" type="submit">
+							Se connecter
+						</button>
+
+						<a href="{{ path('app_register') }}">Vous n'êtes pas encore membre?
+							<span style="color:#ffc800">
+								Inscrivez-vous.</span>
+						</a>
+					</form>
+
+				</div>
+			</div>
+			<div class=" col-lg-5  bejaia_image"></div>
+		</div>
+	</div>
+
+
+	<script>
+		let pass = document.getElementById('inputPassword');
+let eye = document.getElementsByClassName('aff');
+let eye2 = document.getElementsByClassName('aff2');
+pass.addEventListener('input', function () {
+if (pass.value != "" && eye2[0].style.display == 'none') {
+eye[0].style.display = 'block';
+} else if (pass.value != "" && eye2[0].style.display == 'block') {
+eye[0].style.display = 'none';
+} else {
+eye[0].style.display = 'none';
+eye2[0].style.display = 'none';
+}
+
+});
+
+
+eye[0].addEventListener('click', function () {
+eye[0].style.display = 'none';
+eye2[0].style.display = 'block';
+pass.setAttribute("type", "text");
+});
+eye2[0].addEventListener('click', function () {
+eye[0].style.display = 'block';
+eye2[0].style.display = 'none';
+pass.setAttribute("type", "password");
+});
+	</script>
 {% endblock %}
