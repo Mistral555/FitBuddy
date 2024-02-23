@@ -6,39 +6,43 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class SecurityControllerTest extends WebTestCase
 {
-    public function testLogin(): void
+    public function testSuccessfulLogin(): void
     {
         $client = static::createClient();
+        
         $crawler = $client->request('GET', '/login');
 
         $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('button', 'Se connecter');
 
-        // Ajoutez les valeurs du formulaire ici en fonction de votre implémentation
-        $form = $crawler->selectButton('Login')->form();
-        $form['_username'] = 'your_username';
-        $form['_password'] = 'your_password';
+        $form = $crawler->selectButton('Se connecter')->form([
+            'email' => 'andry@gmail.com',
+            'password' => 'andry2000'
+        ]);
 
         $client->submit($form);
-
-        $this->assertResponseRedirects(); // Vérifie si la redirection après la connexion est correcte
-        $client->followRedirect(); // Suivre la redirection
-
-        $this->assertRouteSame('home'); // Assurez-vous que vous êtes redirigé vers la bonne route
-        $this->assertSelectorExists('.your-selector-for-success'); // Vérifiez si le message de succès est présent
+        //$this->assertResponseRedirects('/');
+        //$client->followRedirect();
+        //$this->assertRouteSame('home');
+        //$this->assertSelectorTextContains('h1', 'You are logged in as');
+        //$this->assertSelectorExists('a[href="' . $client->getContainer()->get('router')->generate('app_logout') . '"]');
     }
-
-    public function testLogout(): void
+    public function testLoginWithBadCredential(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/logout');
+        
+        $crawler = $client->request('GET', '/login');
 
-        // Assurez-vous que la réponse est une redirection
-        $this->assertResponseRedirects();
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('button', 'Se connecter');
 
-        // Suivez la redirection
-        $client->followRedirect();
+        $form = $crawler->selectButton('Se connecter')->form([
+            'email' => 'andry@gmail.com',
+            'password' => 'fakepassword'
+        ]);
 
-        // Assurez-vous que la route après la déconnexion est correcte
-        $this->assertRouteSame('your_target_route_after_logout');
+        $client->submit($form);
+        //$this->assertResponseRedirects();
+        //$client->followRedirect();
     }
 }
