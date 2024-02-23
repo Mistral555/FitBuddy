@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">   <link rel="stylesheet" href="css/programme.css">
+    <link rel='stylesheet' href='css/aos.css'>
+    <link rel='stylesheet' href='css/aliment.css'>
+    <link rel='stylesheet' href='css/tooplate-gymso-style.css'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">FitBuddy</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link smoothScroll">Profile</a>
+                    </li>
+
+                   
+                    <li class="nav-item">
+                        <a href="#" class="nav-link smoothScroll">Mon Programme</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link smoothScroll">Deconnexion</a>
+                    </li>
+                </ul>
+
+           
+            </div>
+
+        </div>
+   </nav>
+
+    <section class="class section">
+        <div class="container">
+             <div class="row">
+
+                     <div class="col-lg-12 col-12 text-center mb-5">
+                         <h6 >Obtenez un corps parfait</h6>
+
+                         <h2>Choisissez votre objectif</h2>
+                      </div>
+
+                     <div class="col-lg-4 col-md-4 col-12 crds">
+                         <div class="class-thumb">
+                             <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
+
+                             <div class="class-info" >
+                                 <h3 class="mb-1">Perte de Poids</h3>
+
+                   
+
+                                 <p >Atteignez vos objectifs de poids avec notre programme personnalisé.</p>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-4 col-12 crds">
+                         <div class="class-thumb">
+                             <img src="images/masse.jpg" class="img-fluid" alt="Class">
+
+                             <div class="class-info">
+                                 <h3 class="mb-1">Prise de Masse</h3>
+                                 <p >Développez votre masse musculaire avec notre programme sur mesure.</p>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="mt-5 mt-lg-0  mt-md-0 col-lg-4 col-md-4 col-12 crds">
+                         <div class="class-thumb">
+                             <img src="images/alimentation.jpg" class="img-fluid" alt="Class">
+
+                             <div class="class-info" >
+                                 <h3 class="mb-1">Réequilibrage alimentaire</h3>
+                                 <p >Retrouvez une alimentation saine et équilibrée avec notre programme.</p>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="mt-4 buts" id="perte"><button class="w-100 button-24">Valider (Perte De Poids)</button></div>
+                     <div class="mt-4 buts" id="prise"><button class="w-100 button-24">Valider (Prise De Masse)</button></div>
+                     <div class="mt-4 buts" id="aliment"><button class="w-100 button-24">Valider (Réequilibrage alimentaire)</button></div>
+         
+                   <style>
+
+                        .button-24 {
+                        background: #FF4742;
+                        border: 1px solid #FF4742;
+                        border-radius: 6px;
+                        box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+                        box-sizing: border-box;
+                        color: #FFFFFF;
+                        cursor: pointer;
+                        display: inline-block;
+                        font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+                        font-size: 16px;
+                        font-weight: 800;
+                        line-height: 16px;
+                        min-height: 40px;
+                        outline: 0;
+                        padding: 12px 14px;
+                        text-align: center;
+                        text-rendering: geometricprecision;
+                        text-transform: none;
+                        user-select: none;
+                        -webkit-user-select: none;
+                        touch-action: manipulation;
+                        vertical-align: middle;
+                        }
+
+                        .button-24:hover,
+                        .button-24:active {
+                        background-color: initial;
+                        background-position: 0 0;
+                        color: #FF4742;
+                        }
+
+                        .button-24:active {
+                        opacity: .5;
+                        }
+                    #perte{
+                        display: none;
+                    }
+                    #prise{
+                        display: none;
+                    }
+                    #aliment{
+                        display: none;
+                    }
+                   </style>
+             </div>
+        </div>
+</section>
+<script>
+
+    let crds = document.querySelectorAll('.crds');
+    let buts = document.querySelectorAll('.buts');
+    let classthumb = document.querySelectorAll('.class-thumb');
+
+    
+
+    crds[0].addEventListener('click',function(){
+            crds[0].style.scale = 1.1
+            crds[1].style.scale = 1
+            crds[2].style.scale = 1
+            classthumb[0].style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset'
+            classthumb[1].style.boxShadow = 'none'
+            classthumb[2].style.boxShadow = 'none'
+            buts[0].style.display = 'block'
+            buts[1].style.display = 'none'
+            buts[2].style.display = 'none'
+        })
+    crds[1].addEventListener('click',function(){
+            crds[0].style.scale = 1
+            crds[1].style.scale = 1.1
+            crds[2].style.scale = 1
+            classthumb[1].style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset'
+            classthumb[0].style.boxShadow = 'none'
+            classthumb[2].style.boxShadow = 'none'
+            buts[0].style.display = 'none'
+            buts[1].style.display = 'block'
+            buts[2].style.display = 'none'
+        })
+    crds[2].addEventListener('click',function(){
+            crds[0].style.scale = 1
+            crds[1].style.scale = 1
+            crds[2].style.scale = 1.1
+            classthumb[2].style.boxShadow = 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset'
+            classthumb[1].style.boxShadow = 'none'
+            classthumb[0].style.boxShadow = 'none'
+            buts[0].style.display = 'none'
+            buts[1].style.display = 'none'
+            buts[2].style.display = 'block'
+        })
+    
+    
+</script>
+   
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
