@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -47,6 +49,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
+
+    #[ORM\OneToMany(targetEntity: Poids::class, mappedBy: 'user')]
+    private Collection $poid;
+
+    public function __construct()
+    {
+        $this->poid = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -179,6 +189,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Poids>
+     */
+    public function getPoid(): Collection
+    {
+        return $this->poid;
+    }
+
+    public function addPoid(Poids $poid): static
+    {
+        if (!$this->poid->contains($poid)) {
+            $this->poid->add($poid);
+            $poid->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePoid(Poids $poid): static
+    {
+        if ($this->poid->removeElement($poid)) {
+            // set the owning side to null (unless already changed)
+            if ($poid->getUser() === $this) {
+                $poid->setUser(null);
+            }
+        }
 
         return $this;
     }

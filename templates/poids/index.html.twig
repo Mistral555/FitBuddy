@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Poids index{% endblock %}
+
+{% block body %}
+    <h1>Poids index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Poids</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for poid in poids %}
+            <tr>
+                <td>{{ poid.id }}</td>
+                <td>{{ poid.poids }}</td>
+                <td>{{ poid.date ? poid.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_poids_show', {'id': poid.id}) }}">show</a>
+                    <a href="{{ path('app_poids_edit', {'id': poid.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_poids_new') }}">Create new</a>
+{% endblock %}
