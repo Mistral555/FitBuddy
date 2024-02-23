@@ -1,8 +1,21 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}FitBuddy - Se connecter{% endblock %}</title>
+        <script src="https://kit.fontawesome.com/6429933a54.js" crossorigin="anonymous"></script>
 
-{% block title %}Register{% endblock %}
+        <link rel="icon" href="{{asset('./images/login.png')}}">
 
-{% block body %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+        {% endblock %}
+
+       
+    </head>
+    <body>
+
+
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -38,4 +51,5 @@
 			<div class=" col-lg-5  bejaia_image"></div>
 		</div>
 	</div>
-{% endblock %}
+    </body>
+</html>

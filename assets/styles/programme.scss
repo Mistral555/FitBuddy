@@ -1,0 +1,16 @@
+.descendre:hover .arrow-path {
+    fill: #e72737; /* Changement de couleur du SVG au survol */
+}
+
+.descendre:hover label {
+    color: #e72737; /* Changement de couleur du label au survol */
+}
+.descendre{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.color{
+    color: #e72737;
+}

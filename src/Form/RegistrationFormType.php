@@ -30,7 +30,9 @@ class RegistrationFormType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'label' => 'Mot de passe',
+                'attr' => ['autocomplete' => 'new-password',
+                'placeholder' => 'Mot de passe'],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -45,7 +47,7 @@ class RegistrationFormType extends AbstractType
                 ])
                 ->add('poids',null,[
                     'label' => 'Poids',
-                    'attr' => ['placeholder' => 'Votre poids'],
+                    'attr' => ['placeholder' => 'Poids'],
                 ])
                 ->add('age',null,[
                     'label' => 'Age',
@@ -57,6 +59,7 @@ class RegistrationFormType extends AbstractType
                 ])
                 
                 ->add('agreeTerms', CheckboxType::class, [
+                    'label' => 'J\'accepte les conditions et termes d\'utilisations',
                     'mapped' => false,
                     'constraints' => [
                         new IsTrue([
