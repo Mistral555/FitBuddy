@@ -1,13 +1,21 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}FitBuddy - Se connecter{% endblock %}</title>
+        <script src="https://kit.fontawesome.com/6429933a54.js" crossorigin="anonymous"></script>
 
-{% block title %}Log in!
-{% endblock %}
+        <link rel="icon" href="{{asset('./images/login.png')}}">
 
-{% block body %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('login') }}
+        {% endblock %}
 
-
-	<div class="container-fluid connectClass">
-		<div class="row">
+       
+    </head>
+    <body>
+        	<div class="container-fluid connectClass">
+		<div class="row main">
 			<div class="col-lg-7 col-md-12 col-12 formulaire">
 
 				<img src="{{asset('./images/login.png')}}" width="230" style="margin:0 auto;" alt="">
@@ -91,4 +99,13 @@ eye2[0].style.display = 'none';
 pass.setAttribute("type", "password");
 });
 	</script>
-{% endblock %}
+
+
+        <script>
+            AOS.init();
+        </script>
+    </body>
+</html>
+
+
+

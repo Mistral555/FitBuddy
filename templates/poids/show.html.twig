@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Poids{% endblock %}
+
+{% block body %}
+    <h1>Poids</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ poid.id }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ poid.poids }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ poid.date ? poid.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_poids_index') }}">back to list</a>
+
+    <a href="{{ path('app_poids_edit', {'id': poid.id}) }}">edit</a>
+
+    {{ include('poids/_delete_form.html.twig') }}
+{% endblock %}

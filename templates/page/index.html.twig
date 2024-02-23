@@ -1,59 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home!{% endblock %}
+{% block title %}FitBuddy - Accueil{% endblock %}
 
 {% block body %}
-{% if app.user %}
+{# {% if app.user %}
         <h1 class="mb-3">
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </h1>
-    {% endif %}
+    {% endif %} #}
 
-<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    {{ include('layouts/_NavBar.html.twig') }}
 
-    <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-
-            <a class="navbar-brand" href="index.html">FitBuddy</a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link smoothScroll">Accueil</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">A propos</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#class" class="nav-link smoothScroll">Programmes</a>
-                    </li>
-
-                 
-
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link smoothScroll">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link smoothScroll">Connexion</a>
-                    </li>
-                </ul>
-
-           
-            </div>
-
-        </div>
-    </nav>
-
-
-     <!-- HERO -->
      <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
 
             <div class="bg-overlay"></div>
@@ -64,13 +21,13 @@
                          <div class="col-lg-8 col-md-10 mx-auto col-12">
                               <div class="hero-text mt-5 text-center">
 
-                                    <h6 data-aos="fade-up" data-aos-delay="300">Bienvenue sur FitBuddy </h6>
+                                    <h6>Bienvenue sur FitBuddy </h6>
 
-                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Votre compagnon d'entraînement personnel</h1>
+                                    <h1 class="text-white">Votre compagnon d'entraînement personnel</h1>
 
-                                    <a href="#feature" class="btn custom-btn mt-3" data-aos="fade-up" data-aos-delay="600">Commencez dès maintenant!</a>
+                                    <a href="#feature" class="btn custom-btn mt-3">Commencez dès maintenant!</a>
 
-                                    <a href="#about" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Voir Plus</a>
+                                    <a href="#about" class="btn custom-btn bordered mt-3">Voir Plus</a>
                                    
                               </div>
                          </div>
@@ -84,28 +41,21 @@
 
      <!-- ABOUT -->
      <section class="about section" id="about">
-               <div class="container">
-                    <div class="row">
+               <div class="container" style="overflow: hidden;">
+                    <div class="row" style="overflow: hidden;">
 
-                            <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-                                <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300">Bonjour, nous sommes FitBuddy</h2>
+                            <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12" style="overflow: hidden;">
+                                <h2 class="mb-4" data-aos="fade-up" data-aos-delay="200"  style="overflow: hidden;">Bonjour, nous sommes FitBuddy</h2>
 
-                                <p style="margin-top: 50px;" data-aos="fade-up" data-aos-delay="400">Votre compagnon d'entraînement personnel vous permet de :
+                                <p style="margin-top: 50px;" data-aos="fade-up" data-aos-delay="200" style="overflow: hidden;">Votre compagnon d'entraînement personnel vous permet de :
                                     <br>- Suivez vos entraînements.
                                     <br>- recevez des recommandations personnalisées et visualisez votre progression au fil du temps.
                                     <br>- Créez votre profil, gérez vos entraînements et suivez vos progrès facilement. </p>
-
-                                
                             </div>
 
-                            <div class="ml-lg-auto col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-delay="700">
-                                <div class="team-thumb" style="    display: flex;
-                                align-items: center;
-                                justify-content: center;" >
-                                
-                                    <img src="images/team/team-image.jpg" width="400px" class="img-fluid" alt="Trainer">
-
-                                 
+                            <div class="ml-lg-auto col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200" style="overflow: hidden;">
+                                <div class="team-thumb" style="display: flex; align-items: center; justify-content: center; overflow: hidden;" >                                
+                                    <img src="images/team/team-image.jpg" width="400px" class="img-fluid" alt="Trainer"  style="overflow: hidden;">
                                 </div>
                             </div>
 
@@ -118,17 +68,17 @@
 
      <!-- CLASS -->
      <section class="class section" id="class">
-               <div class="container">
-                    <div class="row">
+               <div class="container"  style="overflow: hidden;">
+                    <div class="row" style="overflow: hidden;">
 
-                            <div class="col-lg-12 col-12 text-center mb-5">
+                            <div class="col-lg-12 col-12 text-center mb-5" style="overflow: hidden;">
                                 <h6 data-aos="fade-up">Obtenez un corps parfait</h6>
 
                                 <h2 data-aos="fade-up" data-aos-delay="200">Nos entrainements pour vous</h2>
                              </div>
 
-                            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
-                                <div class="class-thumb">
+                            <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200" style="overflow: hidden;">
+                                <div class="class-thumb" style="overflow: hidden;">
                                     <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
 
                                     <div class="class-info">
@@ -180,14 +130,14 @@
 
 
      <!-- CONTACT -->
-     <section class="contact section" id="contact">
-          <div class="container">
-               <div class="row">
+     <section class="contact section" id="contact"  style="overflow: hidden;">
+          <div class="container" style="overflow: hidden;">
+               <div class="row" style="overflow: hidden;">
 
-                    <div class="ml-auto col-12">
+                    <div class="ml-auto col-12" style="overflow: hidden;">
                         <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">N'hésitez pas à poser n'importe quelle question!</h2>
 
-                        <form action="#" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
+                        <form action="#" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="200" role="form" style="overflow: hidden;">
                             <input type="text" class="form-control" name="cf-name" placeholder="Name">
 
                             <input type="email" class="form-control" name="cf-email" placeholder="Email">
@@ -276,7 +226,7 @@
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
 
-</body>
+
 
 
 
