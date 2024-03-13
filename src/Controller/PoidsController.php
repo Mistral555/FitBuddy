@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Poids;
-use App\Form\Poids1Type;
+use App\Entity\User;
 use App\Form\PoidsType;
 use App\Repository\PoidsRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,25 +23,29 @@ class PoidsController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_poids_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $poid = new Poids();
-        $form = $this->createForm(PoidsType::class, $poid);
-        $form->handleRequest($request);
+    // #[Route('/new', name: 'app_poids_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request,User $user, EntityManagerInterface $entityManager): Response
+    // {
+    //     $poid = new Poids();
+    //     $form = $this->createForm(PoidsType::class, $poid);
+    //     $form->handleRequest($request);
+        
+    //     dump($user = $this->getUser());
+        
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->persist($poid);
+    //         // $user->setPoids($form->get('poids')->getData());
+    //         $entityManager->flush();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($poid);
-            $entityManager->flush();
 
-            return $this->redirectToRoute('app_poids_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('profile', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->render('poids/new.html.twig', [
-            'poid' => $poid,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->render('poids/new.html.twig', [
+    //         'poid' => $poid,
+    //         'form' => $form,
+    //     ]);
+    // }
 
     #[Route('/{id}', name: 'app_poids_show', methods: ['GET'])]
     public function show(Poids $poid): Response
@@ -54,7 +58,7 @@ class PoidsController extends AbstractController
     #[Route('/{id}/edit', name: 'app_poids_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Poids $poid, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(Poids1Type::class, $poid);
+        $form = $this->createForm(PoidsType::class, $poid);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

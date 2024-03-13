@@ -512,7 +512,7 @@ a:focus {
 -----------------------------------------*/
 
 .webform input,
-button#submit-button {
+a#submit-button {
   height: calc(2.25rem + 20px);
 }
 
@@ -526,15 +526,18 @@ button#submit-button {
   border-color: var(--dark-color);
 }
 
-button#submit-button {
+a#submit-button {
   background: var(--dark-color);
   border-color: transparent;
   color: var(--white-color);
   cursor: pointer;
+  text-align: center;
+    font-size: 1.3em;
+    font-weight: 600;
   transition: all 0.3s ease;
 }
 
-button#submit-button:hover {
+a#submit-button:hover {
   background: var(--primary-color);
 }
 

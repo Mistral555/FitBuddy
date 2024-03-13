@@ -25,9 +25,9 @@
 
                                     <h1 class="text-white">Votre compagnon d'entraînement personnel</h1>
 
-                                    <a href="#feature" class="btn custom-btn mt-3">Commencez dès maintenant!</a>
+                                    <a href="#class" class="btn custom-btn mt-3">Commencez dès maintenant!</a>
 
-                                    <a href="#about" class="btn custom-btn bordered mt-3">Voir Plus</a>
+                                    <a href="#class" class="btn custom-btn bordered mt-3">Voir Plus</a>
                                    
                               </div>
                          </div>
@@ -78,36 +78,41 @@
                              </div>
 
                             <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200" style="overflow: hidden;">
-                                <div class="class-thumb" style="overflow: hidden;">
-                                    <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
+                                <a href="{{path('perte')}}">
+                                    <div class="class-thumb" style="overflow: hidden;">
+                                        <img src="images/class/crossfit-class.jpg" class="img-fluid" alt="Class">
 
-                                    <div class="class-info">
-                                        <h3 class="mb-4">Perte de Poids</h3>
+                                        <div class="class-info">
+                                            <h3 class="mb-4">Perte de Poids</h3>
 
-                                       
+                                        
 
-                                        <span class="class-price">Gratuit</span>
+                                            <span class="class-price">Gratuit</span>
 
-                                        <p style="margin-top: 50px;">Atteignez vos objectifs de poids avec notre programme personnalisé.</p>
+                                            <p style="margin-top: 50px;">Atteignez vos objectifs de poids avec notre programme personnalisé.</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
 
                             <div class="mt-5 mt-lg-0 mt-md-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
-                                <div class="class-thumb">
-                                    <img src="images/masse.jpg" class="img-fluid" alt="Class">
+                                <a href="{{path('prise')}}">
+                                    <div class="class-thumb">
+                                        <img src="images/masse.jpg" class="img-fluid" alt="Class">
 
-                                    <div class="class-info">
-                                        <h3 class="mb-4">Prise de Poids</h3>
+                                        <div class="class-info">
+                                            <h3 class="mb-4">Prise de Poids</h3>
 
-                                        <span class="class-price">Gratuit</span>
+                                            <span class="class-price">Gratuit</span>
 
-                                        <p style="margin-top: 50px;">Développez votre masse musculaire avec notre programme sur mesure.</p>
+                                            <p style="margin-top: 50px;">Développez votre masse musculaire avec notre programme sur mesure.</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
 
                             <div class="mt-5 mt-lg-0 col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+                                <a href="{{path('aliment')}}">
                                 <div class="class-thumb">
                                     <img src="images/reequi.jpg" class="img-fluid" alt="Class">
 
@@ -120,6 +125,7 @@
                                         <p class="mt-3">Retrouvez une alimentation saine et équilibrée avec notre programme.</p>
                                     </div>
                                 </div>
+                                </a>
                             </div>
 
                     </div>
@@ -138,21 +144,41 @@
                         <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">N'hésitez pas à poser n'importe quelle question!</h2>
 
                         <form action="#" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="200" role="form" style="overflow: hidden;">
-                            <input type="text" class="form-control" name="cf-name" placeholder="Name">
+                            <input type="text" id="sub" class="form-control" name="cf-name" placeholder="Sujet">
 
-                            <input type="email" class="form-control" name="cf-email" placeholder="Email">
+                            <textarea class="form-control" id="bod" rows="5" name="cf-message" placeholder="Message"></textarea>
 
-                            <textarea class="form-control" rows="5" name="cf-message" placeholder="Message"></textarea>
-
-                            <button type="submit" class="form-control" id="submit-button" name="submit">Envoyer</button>
+                            <a href="mailto:FitBuddy@gmail.com?subject=a&body=cz" class="form-control" id="submit-button" name="submit">Envoyer</a>
                         </form>
                     </div>
+
 
                   
                     
                </div>
           </div>
      </section>
+
+     <script>
+        
+
+        function updateMailtoLink() {
+            
+            let s = document.querySelector("#sub").value;
+            let b = document.querySelector("#bod").value;
+
+            
+            var mailtoLink = "mailto:FitBuddy@gmail.com?subject=" + encodeURIComponent(s) + "&body=" + encodeURIComponent(b) ;
+
+            
+            document.getElementById("submit-button").href = mailtoLink;
+        }
+
+        document.getElementById("submit-button").addEventListener("click", updateMailtoLink);
+
+
+        
+     </script>
 
 
      <!-- FOOTER -->
@@ -161,7 +187,7 @@
                <div class="row">
 
                     <div class="ml-auto col-lg-4 col-md-5">
-                        <p class="copyright-text">Copyright &copy; 2020 Gymso Fitness Co.
+                        <p class="copyright-text">Copyright &copy; 2024 M1 SIGLIS.
                         
                        
                     </div>
@@ -169,10 +195,10 @@
                     <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
                         <p class="mr-4">
                             <i class="fa fa-envelope-o mr-1"></i>
-                            <a href="#">FitBuddy@gmail.com</a>
+                            <a href="mailto:FitBuddy@gmail.com">FitBuddy@gmail.com</a>
                         </p>
 
-                        <p><i class="fa fa-phone mr-1"></i> xx-xx-xx-xx-xx</p>
+                        <p><i class="fa fa-phone mr-1"></i> (+33) 749 63 44 37</p>
                     </div>
                     
                </div>

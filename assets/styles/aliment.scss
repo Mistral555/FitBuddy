@@ -1,0 +1,20 @@
+.col-12 {
+    margin: auto;
+    width: 70%;
+  }
+  .boton {
+    padding: 5px 0;
+    display: flex;
+    align-items: baseline;
+  }
+  .boton svg {
+    margin-right: 5px;
+    fill: #e72737;
+    width: 12px;
+    height: 12px;
+  }
+  p {
+    text-decoration: underline;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }

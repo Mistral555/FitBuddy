@@ -28,6 +28,19 @@ body{
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem;
+
+    .mb-3{
+        label{
+            margin-bottom: 0;
+        }
+        label:last-child{
+            margin-left: 25;
+        }
+
+        input{
+            margin: 0;
+        }
+    }
 }
 
 .gutters-sm {
